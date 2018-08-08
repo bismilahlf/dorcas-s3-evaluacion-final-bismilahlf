@@ -10,8 +10,10 @@ class CharacterList extends Component {
     }
 
   createCharacter(item){
+    const id = item.name + item.age + item.house
     return (
-        <li key={item.id}>
+        <li key={id}>
+        
             <CharacterCard 
                 character={item}
             />
@@ -22,7 +24,6 @@ class CharacterList extends Component {
   render() {
 
     const myCharacters = this.props.characters.map(this.createCharacter)
-    console.log('MAP', this.props.characters)
     return (
       <div>
         <ul>

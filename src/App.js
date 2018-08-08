@@ -22,7 +22,6 @@ class App extends Component {
       .then((response) => response.json())
       .then((JSONdata) => {
         this.initialCharacters = JSONdata
-        console.log('JSON', JSONdata)
         this.setState({
           characterDirectory: JSONdata
         });
