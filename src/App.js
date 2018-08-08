@@ -10,10 +10,10 @@ class App extends Component {
   constructor(props){
     super(props)
 
-    this.initialCharacters = []
+    // this.initialCharacters = []
 
     this.state = {
-      characterList: []
+      characterDirectory: []
     }
   }
 
@@ -21,9 +21,10 @@ class App extends Component {
     fetch(HARRY_POTTER_CHARACTERS)
       .then((response) => response.json())
       .then((JSONdata) => {
-        this.initialCharacters = JSONdata.results
+        this.initialCharacters = JSONdata
+        console.log('JSON', JSONdata)
         this.setState({
-          characterList: JSONdata.results
+          characterDirectory: JSONdata
         });
       });
   }
@@ -32,13 +33,11 @@ class App extends Component {
     return (
       <div>
         <CharacterList 
-          characters={this.state.characterList}
+          characters={this.state.characterDirectory}
         />
         <Filters/>
-        
       </div>
     );
   }
 }
-
 export default App;

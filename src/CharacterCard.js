@@ -6,9 +6,9 @@ class CharacterCard extends Component {
   render() {
     return (
       <div>
-        <img src="" alt=""/>
-        <h1></h1>
-        <h2></h2>
+        <img src={this.props.character.image} alt=""/>
+        <h1>{this.props.character.name}</h1>
+        <h2>{this.props.character.house}</h2>
       </div>
     )
   }

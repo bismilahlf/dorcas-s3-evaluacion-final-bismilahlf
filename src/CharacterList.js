@@ -6,12 +6,12 @@ class CharacterList extends Component {
     constructor(props){
         super(props)
 
-        
+        this.createCharacter = this.createCharacter.bind(this)
     }
 
-  createCharacter(index, item){
+  createCharacter(item){
     return (
-        <li key={index}>
+        <li key={item.id}>
             <CharacterCard 
                 character={item}
             />
@@ -21,11 +21,12 @@ class CharacterList extends Component {
 
   render() {
 
-    const characters = this.props.characters.map(this.createCharacter)
+    const myCharacters = this.props.characters.map(this.createCharacter)
+    console.log('MAP', this.props.characters)
     return (
       <div>
         <ul>
-            {characters}
+            {myCharacters}
         </ul>
       </div>
     )
