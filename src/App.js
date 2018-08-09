@@ -10,7 +10,9 @@ class App extends Component {
   constructor(props){
     super(props)
 
-    // this.initialCharacters = []
+    this.filterByName = this.filterByName.bind(this);
+
+    this.initialCharacters = []
 
     this.state = {
       characterDirectory: []
@@ -21,20 +23,35 @@ class App extends Component {
     fetch(HARRY_POTTER_CHARACTERS)
       .then((response) => response.json())
       .then((JSONdata) => {
-        this.initialCharacters = JSONdata
+        this.initialCharacters = JSONdata;
         this.setState({
           characterDirectory: JSONdata
         });
       });
   }
+
+  filterByName(event){
+    
+    const filteredCharacters = this.initialCharacters.filter((item) => {
+      const nameLowercase = item.name.toLowerCase();
+      const valueLowercase = event.target.value.toLowerCase();
+      return nameLowercase.includes(valueLowercase);
+    })
+    
+    this.setState(
+      {characterDirectory: filteredCharacters}
+    )
+  }
   
   render() {
     return (
       <div>
+        <Filters
+          filterFunction={this.filterByName}
+        />
         <CharacterList 
           characters={this.state.characterDirectory}
         />
-        <Filters/>
       </div>
     );
   }
