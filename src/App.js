@@ -5,7 +5,7 @@ import CharacterList from './CharacterList';
 import Filters from './Filters';
 import CharacterDetails from './CharacterDetails';
 
-const HARRY_POTTER_CHARACTERS = "http://hp-api.herokuapp.com/api/characters"
+const HARRY_POTTER_CHARACTERS = "https://hp-api.herokuapp.com/api/characters"
 
 class App extends Component {
 
@@ -64,19 +64,20 @@ class App extends Component {
   render() {
     return (
       <div className="app-wrapper">
-        <header>
-          <h1 className="title">Personajes de Harry Potter</h1>
-        </header>
         <main className="main">
           <Switch>
+            
               <Route exact path='/' render={ () => 
                 <div>
                   <Filters classNAme="input-wrapper"
                     filterFunction={this.filterByName}
                   />
-                  <CharacterList 
+                  <div>
+                    <h1>Personajes de Harry Potter</h1>
+                    <CharacterList 
                     characters={this.state.characterDirectory}
                   />
+                  </div>
                 </div>
               }/>
 

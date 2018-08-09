@@ -1,6 +1,9 @@
-.card-wrapper {
-    background: darkorange;
+.character-card {
+    background: salmon;
     text-align: center;
+    height: 350px;
+    width: 200px;
+    border: 1px solid black;
 }
 
 .link {
@@ -12,4 +15,15 @@
     height: 250px;
     object-fit: cover;
     object-position: top;
+}
+
+.character-name {
+    font-size: 20px;
+    color: white;
+}
+
+.character-house {
+    font-size: 15px;
+    color: white;
+    font-weight: normal;
 }

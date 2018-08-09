@@ -1,14 +1,30 @@
 .character-details {
   width: 100vw;
   height: 100vh;
-  background: darkorange;
+  background: salmon;
   display: flex;
   flex-direction: row;
 }
 
-.character-image {
-  width: 100%;
+.characterdetails-image {
+  width: 40%;
   height: auto;
   object-fit: cover;
   object-position: top;
+}
+
+.data-wrapper {
+  width: 60%;
+  text-align: left;
+  padding: 30px;
+  color: white;
+  
+}
+
+.data-name-wrapper {
+  text-align: center;
+}
+
+.data-sub-wrapper {
+  margin-top: 15%;
 }

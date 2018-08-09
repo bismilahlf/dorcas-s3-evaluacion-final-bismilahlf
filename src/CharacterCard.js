@@ -9,9 +9,9 @@ class CharacterCard extends Component {
       <div className="card-wrapper">
         <Link className="link" to={`/details/${this.props.character.id}`}>
           <div className="character-card">
-          <img src={this.props.character.image} className="character-image" alt=""/>
-          <h1>{this.props.character.name}</h1>
-          <h2>{this.props.character.house}</h2>
+            <img src={this.props.character.image} className="character-image" alt=""/>
+            <h1 className="character-name">{this.props.character.name}</h1>
+            <h2 className="character-house">{this.props.character.house}</h2>
           </div>
         </Link>
       </div>
