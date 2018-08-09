@@ -39,6 +39,7 @@ class App extends Component {
       });
   }
 
+
   filterByName(event){
     
     const filteredCharacters = this.initialCharacters.filter((item) => {
@@ -62,26 +63,31 @@ class App extends Component {
   
   render() {
     return (
-        <Switch>
-            
-            <Route exact path='/' render={ () => 
-              <div>
-                <Filters
-                  filterFunction={this.filterByName}
-                />
-                <CharacterList 
-                  characters={this.state.characterDirectory}
-                />
-              </div>
-            }/>
+      <div>
+        <header>
+          Personajes de Harry Potter
+        </header>
+        <main>
+          <Switch>
+              <Route exact path='/' render={ () => 
+                <div>
+                  <Filters
+                    filterFunction={this.filterByName}
+                  />
+                  <CharacterList 
+                    characters={this.state.characterDirectory}
+                  />
+                </div>
+              }/>
 
-            <Route path='/details/:id' render={ (props) => 
-              <CharacterDetails
-                character={this.selectCharacter(props.match.params.id)}
-              /> 
-            }/>
-
-        </Switch>
+              <Route path='/details/:id' render={ (props) => 
+                <CharacterDetails
+                  character={this.selectCharacter(props.match.params.id)}
+                /> 
+              }/>
+          </Switch>
+        </main>  
+      </div>
     );
   }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import CharacterCard from './CharacterCard';
+import './CharacterList.css';
+
 
 class CharacterList extends Component {
   render() {
