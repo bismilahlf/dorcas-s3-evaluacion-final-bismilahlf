@@ -4,7 +4,7 @@ class Filters extends Component {
 
   render() {
     return (
-      <div>
+      <div className="input-wrapper">
         <input type="text" placeholder="Search by character" onChange={this.props.filterFunction}/>
       </div>
     )

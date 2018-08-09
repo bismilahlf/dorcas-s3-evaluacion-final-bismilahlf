@@ -1,5 +1,5 @@
 .card-wrapper {
-    background: orange;
+    background: darkorange;
     text-align: center;
 }
 
@@ -7,3 +7,9 @@
     text-decoration: none;
 }
 
+.character-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+}

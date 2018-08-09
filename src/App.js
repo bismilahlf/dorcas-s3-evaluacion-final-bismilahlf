@@ -63,15 +63,15 @@ class App extends Component {
   
   render() {
     return (
-      <div>
+      <div className="app-wrapper">
         <header>
-          Personajes de Harry Potter
+          <h1 className="title">Personajes de Harry Potter</h1>
         </header>
-        <main>
+        <main className="main">
           <Switch>
               <Route exact path='/' render={ () => 
                 <div>
-                  <Filters
+                  <Filters classNAme="input-wrapper"
                     filterFunction={this.filterByName}
                   />
                   <CharacterList 
@@ -86,7 +86,7 @@ class App extends Component {
                 /> 
               }/>
           </Switch>
-        </main>  
+        </main>
       </div>
     );
   }

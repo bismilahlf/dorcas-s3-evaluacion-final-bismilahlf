@@ -1,0 +1,8 @@
+.app-wrapper {
+    text-align: center;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+}
