@@ -15,6 +15,7 @@ class CharacterList extends Component {
                                 <li key={item.name + item.age + item.house}>
                                     <CharacterCard 
                                         character={item}
+                                        counterFunction={this.props.counterFunction}
                                     />
                                 </li>
                             )

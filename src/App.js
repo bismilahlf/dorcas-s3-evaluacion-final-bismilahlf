@@ -4,6 +4,7 @@ import './App.css';
 import CharacterList from './CharacterList';
 import Filters from './Filters';
 import CharacterDetails from './CharacterDetails';
+import Contador from './Contador';
 
 const HARRY_POTTER_CHARACTERS = "https://hp-api.herokuapp.com/api/characters"
 
@@ -15,10 +16,13 @@ class App extends Component {
     this.filterByName = this.filterByName.bind(this);
 
     this.initialCharacters = [];
-
+    
     this.state = {
-      characterDirectory: []
+      characterDirectory: [],
+      contador: 0,
     }
+
+    this.setCounter = this.setCounter.bind(this)
   }
 
   componentDidMount(){
@@ -53,13 +57,14 @@ class App extends Component {
     )
   }
 
-  selectCharacter(id) {
-    for (const character of this.state.characterDirectory) {
-      if (character.id === parseInt(id) ) {
-        return character;
-      }
-    }
+  setCounter(){
+    this.setState((prevState, props) => {
+      return {contador: prevState.contador + 1}
+    })
+      
+    
   }
+  
   
   render() {
     return (
@@ -74,17 +79,29 @@ class App extends Component {
                   />
                   <div>
                     <h1>Personajes de Harry Potter</h1>
+                    <Contador contador= {this.state.contador}/>
                     <CharacterList 
                     characters={this.state.characterDirectory}
+                    counterFunction={this.setCounter}
                   />
+                    
                   </div>
                 </div>
               }/>
 
               <Route path='/details/:id' render={ (props) => 
-                <CharacterDetails
-                  character={this.selectCharacter(props.match.params.id)}
-                /> 
+                {
+                  //Guarda el id de la url
+                  const idFromURL = props.match.params.id;
+                  //Recorre los datos de personajes y los compara con el id de la URL
+                  for (const character of this.state.characterDirectory) {
+                    if (character.id === parseInt(idFromURL) ) {
+                      return (
+                        <CharacterDetails character={ character } /> 
+                      )
+                    }
+                  }
+                }
               }/>
           </Switch>
         </main>
